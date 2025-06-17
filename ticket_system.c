@@ -12,6 +12,7 @@ int main(void)
     printf("----------------------------------\n");
     printf("----------------------------------\n");
 
+    int train,ticket,comp,tr1_ac[10]={-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},tr1_nac[10]={-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},tr2_ac[10]={-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},tr2_nac[10]={-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
     int choice, suc;
     char user_name[50];
     char password[50];
@@ -104,11 +105,10 @@ int main(void)
         {
             goto Book_Tickets;
         }
-        /*if(choice==2)
-        {
+         if(choice==2)
+         {
             goto Avaiable_Seats;
-        }*/
-
+         }
         Book_Tickets:
             printf("----------------------------------\n");
             printf("----------------------------------\n");
@@ -117,7 +117,7 @@ int main(void)
             printf("----------------------------------\n");
             printf("1.Ekota Express\n");
             printf("2.Drutojan Express\n");
-            int train,ticket;
+            // int train,ticket;
             do{
                 printf("Enter your choice:");
             scanf("%d",&train);
@@ -133,7 +133,7 @@ int main(void)
                 printf("----------------------------------\n");
                 printf("1.AC\n");
                 printf("2.Non AC\n");
-                int comp;
+                // int comp;
                  do{
                 printf("Enter your choice:");
             scanf("%d",&comp);
@@ -162,13 +162,13 @@ int main(void)
                         }
                         printf("\n");
                     }
-                    printf("How many tickets you want to book:");
+                     printf("How many tickets you want to book:");
                     scanf("%d",&ticket);
-                    int ac[ticket];
+                    // int tr1_ac[ticket];
                     printf("Book your tickets:");
                     for(int i=0;i<ticket;i++)
                     {
-                        scanf("%d",&ac[i]);
+                        scanf("%d",&tr1_ac[i]);
                     }
 
                 }
@@ -197,11 +197,11 @@ int main(void)
                     }
                     printf("How many tickets you want to book:");
                     scanf("%d",&ticket);
-                    int nac[ticket];
-                    printf("Book your tickets(You can only book 4 at a time):");
+                    // int tr1_nac[ticket];
+                    printf("Book your tickets:");
                     for(int i=0;i<ticket;i++)
                     {
-                        scanf("%d",&nac[i]);
+                        scanf("%d",&tr1_nac[i]);
                     }
                 }
 
@@ -249,11 +249,11 @@ int main(void)
                     }
                     printf("How many tickets you want to book:");
                     scanf("%d",&ticket);
-                    int ac[ticket];
+                    // int tr2_ac[ticket];
                     printf("Book your tickets:");
                     for(int i=0;i<ticket;i++)
                     {
-                        scanf("%d",&ac[i]);
+                        scanf("%d",&tr2_ac[i]);
                     }
 
                 }
@@ -282,16 +282,208 @@ int main(void)
                     }
                     printf("How many tickets you want to book:");
                     scanf("%d",&ticket);
-                    int nac[ticket];
+                    // int tr2_nac[ticket];
                     printf("Book your tickets:");
                     for(int i=0;i<ticket;i++)
                     {
-                        scanf("%d",&nac[i]);
+                        scanf("%d",&tr2_nac[i]);
                     }
                 }
-            } goto post_login;
+            } goto post_booking;
+
+             // Line 98-294 done by Md Nayemul Hasan
+
+            //From this line the code is written by Abrar khan
+
+             Avaiable_Seats:
+
+            printf("----------------------------------\n");
+            printf("----------------------------------\n");
+            printf("        |Available Trains:|\n");
+            printf("----------------------------------\n");
+            printf("----------------------------------\n");
+            printf("1.Ekota Express\n");
+            printf("2.Drutojan Express\n");
+
+            do{
+                printf("Enter your choice:");
+            scanf("%d",&train);
+            getchar();
+            } while(train < 1 || train > 2);
+
+            if(train==1)
+            {
+                printf("----------------------------------\n");
+                printf("----------------------------------\n");
+                printf("        |Compartments:|\n");
+                printf("----------------------------------\n");
+                printf("----------------------------------\n");
+                printf("1.AC\n");
+                printf("2.Non AC\n");
+                 do{
+                printf("Enter your choice:");
+            scanf("%d",&comp);
+            getchar();
+            } while(comp < 1 || comp > 2);
+            if(comp==1)
+            {
+                    printf("----------------------------------\n");
+                    printf("----------------------------------\n");
+                    printf("        |Available Seats:|\n");
+                    printf("----------------------------------\n");
+                    printf("----------------------------------\n");
+                int t1_ac[10]={1,2,3,4,5,6,7,8,9,10};
+            for(int i=0;i<10;i++){
+                for(int j=0;j<ticket;j++){
+                    if(t1_ac[i]==tr1_ac[j]){
+                        t1_ac[i]=0;
+                    }
+                }
+            }
+             for(int i=0;i<10;i++){
+                 if(t1_ac[i]!=0){
+                     printf(" %d ",t1_ac[i]);
+                 }
+                 if(t1_ac[i]==0){
+                     printf(" B ");
+                 }
+             }
+            }
+            if(comp==2){
+                printf("----------------------------------\n");
+                    printf("----------------------------------\n");
+                    printf("        |Available Seats:|\n");
+                    printf("----------------------------------\n");
+                    printf("----------------------------------\n");
+                int t1_nac[10]={1,2,3,4,5,6,7,8,9,10};
+            for(int i=0;i<10;i++){
+                for(int j=0;j<ticket;j++){
+                    if(t1_nac[i]==tr1_nac[j]){
+                        t1_nac[i]=0;
+                    }
+                }
+            }
+             for(int i=0;i<10;i++){
+                 if(t1_nac[i]!=0){
+                     printf(" %d ",t1_nac[i]);
+                 }
+                 if(t1_nac[i]==0){
+                     printf(" B ");
+                 }
+             }
+            }
+            }
+            if(train==2){
+                printf("----------------------------------\n");
+                printf("----------------------------------\n");
+                printf("        |Compartments:|\n");
+                printf("----------------------------------\n");
+                printf("----------------------------------\n");
+                printf("1.AC\n");
+                printf("2.Non AC\n");
+                 do{
+                printf("Enter your choice:");
+            scanf("%d",&comp);
+            getchar();
+            } while(comp < 1 || comp > 2);
+            if(comp==1)
+            {
+                    printf("----------------------------------\n");
+                    printf("----------------------------------\n");
+                    printf("        |Available Seats:|\n");
+                    printf("----------------------------------\n");
+                    printf("----------------------------------\n");
+                int t2_ac[10]={1,2,3,4,5,6,7,8,9,10};
+            for(int i=0;i<10;i++){
+                for(int j=0;j<ticket;j++){
+                    if(t2_ac[i]==tr2_ac[j]){
+                        t2_ac[i]=0;
+                    }
+                }
+            }
+             for(int i=0;i<10;i++){
+                 if(t2_ac[i]!=0){
+                     printf(" %d ",t2_ac[i]);
+                 }
+                 if(t2_ac[i]==0){
+                     printf(" B ");
+                 }
+             }
+            }
+            if(comp==2){
+                printf("----------------------------------\n");
+                    printf("----------------------------------\n");
+                    printf("        |Available Seats:|\n");
+                    printf("----------------------------------\n");
+                    printf("----------------------------------\n");
+                int t2_nac[10]={1,2,3,4,5,6,7,8,9,10};
+            for(int i=0;i<10;i++){
+                for(int j=0;j<ticket;j++){
+                    if(t2_nac[i]==tr2_nac[j]){
+                        t2_nac[i]=0;
+                    }
+                }
+            }
+             for(int i=0;i<10;i++){
+                 if(t2_nac[i]!=0){
+                     printf(" %d ",t2_nac[i]);
+                 }
+                 if(t2_nac[i]==0){
+                     printf(" B ");
+                 }
+             }
+            }
+            }
+            goto post_booking;
+            
+            
+            
+            //This part is written by Md Nayemul Hasan
+            
+            
+            
+            post_booking:
+                printf("\n1) Change Bookings\n");
+        printf("2) Show available seats\n");
+        printf("3) Payment\n");
+        printf("4) Exit\n");
+
+        do
+        {
+            printf("Enter your choice (press 1, 2 or 3): ");
+            scanf("%d", &choice);
+            getchar();
+        } while (choice < 1 || choice > 4);
+
+        if (choice == 4)
+        {
+            printf("\nThank you for using Bangladesh Railway!\n");
+            return 1;
+        }
+
+
+         if(choice==1)
+        {
+            goto Book_Tickets;
+        }
+         if(choice==2)
+         {
+            goto Avaiable_Seats;
+         }
+
+         if(choice==3)
+         {
+            goto payment;
+         }
+
+        //from 98 to 294 and 441 to 489 is written by Md Nayemul Hasan
+         
+         
+         payment:
+             printf("Write your code here jerin");
+
+
 
     }
-    // Line 98-294 done by Md Nayemul Hasan
     return 0;
 }
