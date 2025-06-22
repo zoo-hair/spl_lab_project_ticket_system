@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 int main(void)
 {
@@ -19,7 +20,7 @@ int main(void)
     char name[50];
     char pass[50];
 
-    printf("1. Register\n");
+    printf("1) Register\n");
     printf("2) Exit\n");
     do
     {
@@ -436,13 +437,13 @@ int main(void)
             }
         //from 295 to 436 is written by Md Nayemul Hasan
             goto post_booking;
-            
-            
-            
+
+
+
             //This part is written by Md Nayemul Hasan
-            
-            
-            
+
+
+
             post_booking:
                 printf("\n1) Change Bookings\n");
         printf("2) Show available seats\n");
@@ -478,13 +479,104 @@ int main(void)
          }
 
         //from 98 to 294 and 441 to 489 is written by Md Nayemul Hasan
-         
-         
+
+
+          //from 482 to 577 is written by Jannatun Nayema Jerin
+
          payment:
-             printf("Write your code here jerin");
+          printf("\n\nProcessing your payment request");
+          for(int i=0; i<3; i++){
+            printf(".");
+            fflush(stdout);
+            sleep(1);
+          }
+
+           int totalprice;
+   if(comp==1)
+   {
+    int price=1500;
+    totalprice=price*ticket;
+   }
+   else
+   {
+     int price=750;
+    totalprice = price*ticket;
+   }
+   printf("\nTotal price: %d\n", totalprice);
+   int pay, no, expiry_date, cvc, otp;
+   char pin;
+   printf("Choose your way of payment:\n1.Credit/debit card\n2.Bkash\n3.Nagad\n");
+   scanf("%d", &pay);
+   if(pay==1)
+   {
+       printf("Enter card no:");
+       scanf("%d", &no);
+       printf("Enter cvc no:");
+       scanf("%d", &cvc);
+       printf("Enter expiry date:");
+       scanf("%d", &expiry_date);
+       printf("Enter pin: ");
+       scanf("%d", &pin);
+       printf("Enter otp: ");
+       scanf("%d", &otp);
+   }
+   else
+   {
+       printf("Enter mobile number:");
+       scanf("%d", &no);
+       printf("Enter otp: ");
+       scanf("%d", &otp);
+       printf("Enter pin: ");
+       scanf("%d", &pin);
+   }
+   printf("\n\n**Payment successfull\n");
 
 
+printf("\n------------------------------------------------------------\n");
+printf("Name: %s \nDestination: Dhaka-Dinajpur\n",name);
 
+if(train==1){
+        printf("Train name: Ekota Express\nDeparture Time:10:10\n");
+        if(comp==1){
+                printf("Seat No: ");
+            for(int i=0;i<ticket;i++)
+                    {
+                        printf("%d ", tr1_ac[i]);
+                    }
+        }
+        else {
+            printf("Seat No: ");
+            for(int i=0;i<ticket;i++)
+                    {
+                        printf("%d ", tr1_nac[i]);
+                    }
+        }
     }
+else {
+        printf("Train name: Drutojan Express\nDeparture Time: 20:00\n");
+         if(comp==1){
+                printf("Seat No: ");
+            for(int i=0;i<ticket;i++)
+                    {
+                        printf("%d ", tr2_ac[i]);
+                    }
+        }
+        else {
+            printf("Seat No: ");
+            for(int i=0;i<ticket;i++)
+                    {
+                        printf("%d ", tr2_nac[i]);
+                    }
+        }
+    }
+    printf("\n------------------------------------------------------------\n");
+    printf("\nEnter 3 to exit the program");
+
+    goto post_login;
+    }
+
+
+
+
     return 0;
 }
