@@ -452,7 +452,7 @@ int main(void)
 
         do
         {
-            printf("Enter your choice (press 1, 2 or 3): ");
+            printf("Enter your choice (press 1, 2, 3 or 4): ");
             scanf("%d", &choice);
             getchar();
         } while (choice < 1 || choice > 4);
